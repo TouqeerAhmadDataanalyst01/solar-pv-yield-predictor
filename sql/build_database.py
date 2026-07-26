@@ -17,9 +17,10 @@ import sqlite3
 import csv
 import os
 
-DATA_DIR = "data"          # adjust if your CSVs are elsewhere
-DB_PATH = "solar_data.db"
-SCHEMA_PATH = "schema.sql"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(SCRIPT_DIR, "..", "data")   # data/ sits one level up from sql/
+DB_PATH = os.path.join(SCRIPT_DIR, "..", "solar_data.db")
+SCHEMA_PATH = os.path.join(SCRIPT_DIR, "schema.sql")  # schema.sql lives next to this script
 
 # (city name, lat, lon, capacity_kw, raw weather CSV filename)
 LOCATIONS = [
